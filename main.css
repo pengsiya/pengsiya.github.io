@@ -1,0 +1,46 @@
+/* *{
+   
+} */
+body{
+    max-width: 1000px;
+    margin:auto;
+}
+.search_box{
+    font-family: 'Lato', sans-serif;
+    border-style: solid;
+    border-width: 0.5px;
+    border-color: lightgrey;
+    padding-left: 50px;
+    padding-right: 50px;
+    border-radius: 7px;
+}
+.search_bar{
+    margin-bottom: 20px;
+    height: 40px;
+    width: 100%;
+    position: inline-block;
+}
+ 
+table tr:hover{
+    background-color: beige;
+}
+table {
+    margin:auto;
+    border-collapse: collapse;
+    font-family: Georgia, serif;
+}
+table, tr{
+    border: 1px solid lightgrey;
+}
+.table_cell{
+    padding-left: 5px;
+    padding-right:10px;
+}
+td:first-child{
+    padding-left: 15px;
+}
+img{
+    border-radius: 10%;
+}
+
+
