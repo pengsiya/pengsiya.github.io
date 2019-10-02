@@ -1,54 +1,70 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="main.css">
         <link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
+        <script src="lab_script.js"></script>
         <title>Lab 02</title>
     </head>
     <body>
         <div class="search_box">
             <h1>Aritist Directory</h1>
-            <input class="search_bar" type="text">
+            <div class="search_bar">
+                <input  type="text">
+                <button onclick="addArtist()">add artist</button>
+            </div>
         </div>
-        <div class="artist_table">
-            <table>
-                <tr>
-                    <td><img src="https://randomuser.me/api/portraits/med/men/1.jpg" alt="artist1"></td>
-                    <td class="table_cell">
-                        <h3>Barot Bellingham</h3>
-                        <p>Royal Academy of Painting and Sculpture</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td><img src="https://randomuser.me/api/portraits/med/men/11.jpg"></td>
-                    <td class="table_cell"> 
-                        <h3>Jonathan G. Ferrar</h3>
-                        <p>Artist to Watch in 2012</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td><img src="https://randomuser.me/api/portraits/med/women/7.jpg"></td>
-                    <td class="table_cell"> 
-                        <h3>Jason Zhu</h3>
-                        <p>New York University</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td><img src="https://randomuser.me/api/portraits/med/women/77.jpg"></td>
-                    <td class="table_cell"> 
-                        <h3>Vivian Zhang</h3>
-                        <p>Art College in New Dehli</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td><img src="https://randomuser.me/api/portraits/med/women/47.jpg"></td>
-                    <td class="table_cell"> 
-                        <h3>Jennifer Jerome</h3>
-                        <p>Singer</p>
-                    </td>
-                </tr>
-            </table>
+        <div id = "addArtistList" class ="inputArtist">
+            <ul>
+                <li>
+                    <input  type="text" placeholder="Artist name">
+                </li>
+                <li>
+                    <input  type="text" placeholder="About artist">                
+                </li>
+                <li>
+                    <input  type="text" placeholder="image url"> 
+                </li>
+                <li>
+                    <button onclick="add()">Add</button>
+                </li>
+            </ul>
         </div>
+        <div id="artist_list" class="artistList">
+            <ul>
+                <!-- <li><img src="https://randomuser.me/api/portraits/med/men/1.jpg" alt="artist1">
+                    <div class=artistDes>
+                        <div class="artistName">Barot Bellingham</div>
+                        <div>Royal Academy of Painting and Sculpture</div>
+                    </div>
+                    <button onclick="deleteRowFunction(this)">delete</button>
+                </li>
+                <li>
+                    <img src="https://randomuser.me/api/portraits/med/men/11.jpg">
+                    Jonathan G. Ferrar 
+                    Artist to Watch in 2012
+                    <button onclick="deleteRowFunction(this)">delete</button>
+                </li>
+                <li>
+                    <img src="https://randomuser.me/api/portraits/med/women/7.jpg">
+                    Jason Zhu
+                    New York University
+                    <button onclick="deleteRowFunction(this)">delete</button>
+                </li>
+                <li>
+                    <img src="https://randomuser.me/api/portraits/med/women/77.jpg"></td>
+                    Vivian Zhang
+                    Art College in New Dehli
+                    <button onclick="deleteRowFunction(this)">delete</button>
+                </li>
+                <li>
+                    <img src="https://randomuser.me/api/portraits/med/women/47.jpg">
+                    Jennifer Jerome
+                    Singer
+                    <button onclick="deleteRowFunction(this)">delete</button>
+                </li> -->
+            </ul>
+        </div> 
     </body>
 </html>
