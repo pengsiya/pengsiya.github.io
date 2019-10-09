@@ -18,13 +18,15 @@ body{
     margin-bottom: 20px;
     height: 40px;
 }
-.search_bar button{
+.addArtistButton {
     float: right;
     padding-right: 10px;
+}
+.addArtistButton > * {
     height:34px;
 }
 .search_bar input{
-    width:85%;
+    width:80%;
     height: 30px;
 }
 ul{

@@ -10,12 +10,25 @@ function  addArtist() {
     }
 }
 
-function add() {
+function readInput() {
     var textName = document.getElementsByTagName("input")[1].value, 
         textAboutArtist = document.getElementsByTagName("input")[2].value,
-        artistImage = document.getElementsByTagName("input")[3].value,
-        btn_delete = document.createElement("button"),
-        text_delete = document.createTextNode("delete");
+        artistImage = document.getElementsByTagName("input")[3].value;
+    return {"name":textName, "about":textAboutArtist, "url":artistImage};
+}
+
+function add() {
+    var item = readInput();
+    addToLocalStorage(item.name, item.about, item.url);
+    addOneItem(item);
+}
+
+function addOneItem(artistInfo) {
+    var btn_delete = document.createElement("button"),
+        text_delete = document.createTextNode("delete"),
+        textName = artistInfo.name,
+        textAboutArtist = artistInfo.about,
+        artistImage = artistInfo.url;
     var li = document.createElement("li");
     var image = document.createElement("img");
     var artDes = document.createElement("div");
@@ -46,5 +59,49 @@ function add() {
 function deleteRowFunction() {
     //no clue what to put here?
     var p=this.parentNode;
-        p.parentNode.removeChild(p);
-   }
+    for (var i = 0; i < p.parentNode.childElementCount; i++) {
+        if (p.parentNode.children[i] == p) {
+            var item = JSON.parse(localStorage.getItem('items'));
+            item.splice(i, 1);
+            localStorage.setItem('items', JSON.stringify(item));
+        }
+    }
+    p.parentNode.removeChild(p);
+}
+
+function search(){
+    var input,ul,li;
+    input = document.getElementsByTagName("input")[0];
+    filter = input.value.toUpperCase();
+    ul = document.getElementsByTagName("ul")[1]
+    li = ul.getElementsByTagName("li")
+    for (i = 0; i<li.length; i++){
+        txtValue = li[i].querySelector('.artistName').textContent;
+        if(txtValue.toUpperCase().indexOf(filter)>-1){
+            li[i].style.display = "block";
+        }else{
+            li[i].style.display = "none";
+        }
+    }
+}
+
+function addToLocalStorage(textName, textAboutArtist, artistImage){
+    var itemsArray = JSON.parse(localStorage.getItem('items'));
+    var item = {
+        "name":textName,
+        "about":textAboutArtist,
+        "url":artistImage
+    };
+    itemsArray.push(item);
+    localStorage.setItem('items', JSON.stringify(itemsArray))
+}
+
+window.onload = () => {
+    let itemsArray=[];
+    const data = JSON.parse(localStorage.getItem('items'))
+    if (data != null) {
+        data.forEach(addOneItem);
+    } else {
+        localStorage.setItem('items', JSON.stringify([]));
+    }
+}
